@@ -8,12 +8,16 @@ const FileStore = require('session-file-store')(session);
 const passport = require('passport');
 const authenticate = require('./authenticate');
 
+const config = require('./config');
+
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const campsiteRouter = require('./routes/campsiteRouter');
 const promotionRouter = require('./routes/promotionRouter');
 const partnerRouter = require('./routes/partnerRouter');
 const mongoose = require('mongoose');
+
+const url = config.mongoUrl;
 
 const url = 'mongodb://localhost:27017/nucampsite';
 const connect = mongoose.connect(url, {
