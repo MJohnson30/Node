@@ -15,6 +15,7 @@ const usersRouter = require('./routes/users');
 const campsiteRouter = require('./routes/campsiteRouter');
 const promotionRouter = require('./routes/promotionRouter');
 const partnerRouter = require('./routes/partnerRouter');
+const uploadRouter = require('./routes/uploadRouter');
 const mongoose = require('mongoose');
 
 const url = config.mongoUrl;
@@ -56,6 +57,8 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/imageUpload', uploadRouter);
+
 
 function auth(req, res, next) {
   console.log(req.user);
